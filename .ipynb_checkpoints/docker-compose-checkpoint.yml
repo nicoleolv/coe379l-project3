@@ -11,3 +11,4 @@ services:
     volumes:
       - ./models:/models  # Mount models directory (optional, if you update weights)
     restart: unless-stopped  # Restart unless explicitly stopped
+    entrypoint: ["python", "api.py"]  

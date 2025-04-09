@@ -6,7 +6,6 @@ import io
 
 app = Flask(__name__)
 
-# Load the model (adjust the model path accordingly)
 model = tf.keras.models.load_model('./models/model_alt_cnn2.keras')
 
 @app.route('/summary', methods=['GET'])
@@ -23,13 +22,11 @@ def preprocess_input(im):
     Converts user-provided image into an array that can be used with the model.
     This function could raise an exception.
     """
-    # Resize the image to match the model's input size
     im = im.resize((150, 150))
     
-    # Convert image to numpy array
     img_array = np.array(im) / 255.0  # Normalize the image to [0, 1]
     
-    # Add an extra dimension for batch size (model expects batch dimension)
+    # Add an extra dimension for batch size
     return img_array.reshape(1, 150, 150, 3)
 
 @app.route('/inference', methods=['POST'])
@@ -61,4 +58,4 @@ def classify_building_image():
 
 # Start the development server (make sure to use the correct port)
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    app.run(debug=True, host='0.0.0.0', port=5000)

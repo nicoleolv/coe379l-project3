@@ -58,4 +58,4 @@ def classify_building_image():
 
 # Start the development server (make sure to use the correct port)
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    app.run(debug=True, host='0.0.0.0', port=5000)
