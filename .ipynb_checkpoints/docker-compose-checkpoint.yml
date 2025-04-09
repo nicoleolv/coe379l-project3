@@ -1,0 +1,13 @@
+version: '3.8'  # Specify Docker Compose version
+
+services:
+  damage_classifier_api:  # Name of your service
+    image: rheasamuel/damage_classifier_api  # Your built image
+    build:
+      context: .  # Build from current directory
+      dockerfile: Dockerfile  # Use your existing Dockerfile
+    ports:
+      - "5000:5000"  # Map host port 5000 to container port 5000
+    volumes:
+      - ./models:/models  # Mount models directory (optional, if you update weights)
+    restart: unless-stopped  # Restart unless explicitly stopped

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 import tensorflow as tf 
 import numpy as np
 from PIL import Image
@@ -52,6 +52,6 @@ def classify_building_image():
 
 # start the development server
 if __name__ == '__main__':
-   app.run(debug=True, host='0.0.0.0')
+   app.run(debug=True, host='0.0.0.0', port=5001)
 
     
