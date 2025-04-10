@@ -14,7 +14,7 @@ def model_info():
         "version": "v1",
         "name": "alt-lenet-5",
         "description": "A modified version of the LeNet-5 architecture, designed for improved image classification with adjustments to layer configurations and parameters. This model is based on the dataset containing satellite images from Texas after Hurricane Harvey.",
-        "accuracy": 0.9735053
+        "accuracy": 0.9877163
     })
 
 def preprocess_input(im):
