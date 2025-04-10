@@ -4,7 +4,7 @@ This project uses a Flask-based API containerized with Docker to classify satell
 
 ## Included Files
 
-1.**`project_3.ipynb`**
+1.**`project3.ipynb`**
    This notebook contains Part 1 and 2 of our project. It contains code to load the data into Python data structures, investigate the datasets to determine basic attributes of the images, and ensure data is split for training, validation and testing. It also performs rescaling so that it can be used for training/evaluation of the neural networks you will build in Part 2. Additionally, it tests three different models:
    
    - A dense (i.e., fully connected) ANN
