@@ -25,7 +25,7 @@ This project uses a Flask-based API containerized with Docker to classify satell
 
 4. **`docker-compose.yml`**
 
-   Simplifies management of the Docker container.
+   Simplifies use of the Docker container.
 
 5. **`dataset/`**
 
@@ -33,18 +33,50 @@ This project uses a Flask-based API containerized with Docker to classify satell
 
 ## Building Instructions
 
-Before building, ensure **Docker** and **Docker Compose** are installed on your machine.
-
-You can verify your installations with:
-
-```bash
+Before building, ensure **Docker** and **Docker Compose** are installed on your machine. You can check this by typing, 
+```
 docker --version
 docker-compose --version
 ```
 
 Then, clone this repo by writing the following in terminal,
-```bash
-git clone 
+```
+git clone git@github.com:nicoleolv/coe379l-project3.git
+```
+Now, in order to build the Docker images and start the container, 
+```
+docker-compose up -d --build
+```
+
+Now, the server is up and running! We can test our requests using the following curl commands. The first curl command is our GET request.
+
+```
+curl http://localhost:5000/summary
+```
+
+This will return,
+```
+{
+  "accuracy": 0.9877163,
+  "description": "A modified version of the LeNet-5 architecture, designed for improved image classification with adjustments to layer configurations and parameters. This model is based on the dataset containing satellite images from Texas after Hurricane Harvey.",
+  "name": "alt-lenet-5",
+  "version": "v1"
+}
+```
+
+Now, we can test our POST request. The command below is the format of our curl command.
+```
+curl -X POST -F "image=@dataset/Project3/example_directory/example_file.jpeg" http://localhost:5000/inference
+```
+An actual example of this is seen as,
+```
+curl -X POST -F "image=@dataset/Project3/no_damage/-95.061275_29.831535.jpeg" http://localhost:5000/inference
+```
+This outputs,
+```
+{
+  "prediction": "no_damage"
+}
 ```
 
 ## Citations
