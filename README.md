@@ -78,6 +78,10 @@ This outputs,
   "prediction": "no_damage"
 }
 ```
+Once we are done running the server, we can close it by typing the following in terminal
+```
+docker-compose down
+```
 
 ## Citations
 
